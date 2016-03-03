@@ -1,0 +1,1 @@
+If you have restricted permissions of softwares in your computer it is advisable to install this software in a different local disk from C: Make sure you configure the software during login to a specific ip address of server name.
