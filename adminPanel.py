@@ -106,7 +106,6 @@ class ManageUsers(wx.wizard.WizardPageSimple):
                 ColumnDefn("Username", "left", 130, "username", autoCompleteCellEditor=True, imageGetter=userImageIndex),
                 ColumnDefn("User", "left", 75, "fname", isSpaceFilling=True),
                 ColumnDefn("Other", "left", 75, "lname", isSpaceFilling=True),
-                ColumnDefn("Password", "left", 100, "passwd", isSpaceFilling=True)
         ])
 
         self.list.SetEmptyListMsg("No Accounts Available")              

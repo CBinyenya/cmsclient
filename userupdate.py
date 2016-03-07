@@ -29,24 +29,24 @@ class WindowsPanel(wx.Panel):
         
         addrSizer.AddGrowableCol(3)
         for i in range(0,4):
-            addrSizer.Add((0,10)) # some empty space         
+            addrSizer.Add((0, 10))
         addrSizer.Add(self.nameLb1, 0,
-                wx.ALIGN_CENTER|wx.ALIGN_CENTER_VERTICAL,border=7)
+                wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL, border=7)
         addrSizer.Add(self.prevname, 0, wx.EXPAND)
         addrSizer.Add(self.nameLb2, 0, 
-                wx.ALIGN_CENTER|wx.ALIGN_CENTER_VERTICAL,border=7)
+                wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL, border=7)
         addrSizer.Add(self.prevpass, 0, wx.EXPAND)
         addrSizer.Add(self.nameLb3, 0, 
-                wx.ALIGN_CENTER|wx.ALIGN_CENTER_VERTICAL,border=7)
+                wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL, border=7)
         addrSizer.Add(self.curname, 0, wx.EXPAND)
         addrSizer.Add(self.nameLb4, 0, 
-                wx.ALIGN_CENTER|wx.ALIGN_CENTER_VERTICAL,border=7)
+                wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL, border=7)
         addrSizer.Add(self.curpass, 0, wx.EXPAND)        
         for i in range(0,5):
-            addrSizer.Add((0,10)) # some empty space                 
+            addrSizer.Add((0,10))
         addrSizer.Add(self.save, 10, wx.EXPAND)        
         
-        self.Bind(wx.EVT_BUTTON,self.OnSave,self.save)
+        self.Bind(wx.EVT_BUTTON, self.OnSave, self.save)
 
         self.init()
         self.SetSizer(addrSizer)
@@ -54,16 +54,16 @@ class WindowsPanel(wx.Panel):
 
     def user_details(self):
         try:
-            with open("appfiles/authorization.dat","rb") as confidential:            
+            with open("appfiles/authorization.dat", "rb") as confidential:
                 details = pickle.load(confidential)
                 if not details:
                     wx.MessageBox("User Details unavailable", "AUTHENTICATION ERROR", wx.ICON_ERROR)
                 for user,passwd in details.items():
                     username = user
                     password = passwd
-            return (username,password)
+            return (username, password)
         except:
-            return wx.MessageBox("Authentication  denied!","File Error",wx.ICON_ERROR)
+            return wx.MessageBox("Authentication  denied!", "File Error", wx.ICON_ERROR)
 
     def init(self):
         user,passwd = self.user_details()

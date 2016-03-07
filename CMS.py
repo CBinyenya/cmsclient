@@ -1,9 +1,9 @@
-from multiprocessing import Process,  freeze_support
+from multiprocessing import freeze_support
 import multiprocessing
 import os
 import sys
 import shutil
-import cPickle as pickle
+import cPickle as Pickle
 details = []
 def authorizer(cond):
     """Starts the login window and the authentication process"""
@@ -25,7 +25,7 @@ def system_initializer(cond,event):
         if not os.path.exists("appfiles/authorization.dat"):
             sys.exit()
         with open("appfiles/authorization.dat","rb") as confidential:            
-            details = pickle.load(confidential)            
+            details = Pickle.load(confidential)            
             for user,passwd in details.items():
                 details = [user,passwd]               
         
@@ -46,7 +46,7 @@ def user_interfece_builder(cond,event):
         return
     name = multiprocessing.current_process().name
     with open("appfiles/authorization.dat", "rb") as confidential:
-        details = pickle.load(confidential)            
+        details = Pickle.load(confidential)            
         for user, passwd in details.items():
             details = [user,passwd]               
     print '%s running'% name

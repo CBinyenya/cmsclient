@@ -14,8 +14,8 @@ from functions import InboxManager as inbox
 from functions import Datahandler
 from serverManager import Administration, ServerAccess
 class CommonlyUsedMethodes(object):
-    def __init__(self):        
-        with open("appfiles/authorization.dat","rb") as confidential:            
+    def __init__(self):
+        with open("appfiles/authorization.dat","rb") as confidential:
             details = pickle.load(confidential)
         if not details:
             wx.MessageBox("User Details unavailable", "AUTHENTIFICATION ERROR", wx.ICON_ERROR)
@@ -28,7 +28,7 @@ class CommonlyUsedMethodes(object):
         classs = Administration(self.creds,"get messages",args)
         classs.runEngine()
         try:
-            reactor.run()    
+            reactor.run()
         except:
             pass
         return True
@@ -37,10 +37,10 @@ class CommonlyUsedMethodes(object):
         classs = Administration(self.creds, "delete messages", content)
         classs.runEngine()
         try:
-            reactor.run()    
+            reactor.run()
         except:
-            pass                
-        
+            pass
+
         return True
 
 
@@ -51,11 +51,11 @@ class InboxPanel(wx.Panel, inbox, CommonlyUsedMethodes):
         inbox.__init__(self)
         CommonlyUsedMethodes.__init__(self)
         self.font1 = wx.Font(11, wx.DECORATIVE, wx.NORMAL, wx.NORMAL)
-        self.panel1 = wx.Panel(self, -1, size=(600, 135))
+        self.panel1 = wx.Panel(self, -1, size=(600, 165))
         self.panel2 = wx.Panel(self, -1, size=(582, 500))
+        self.panel1.SetBackgroundColour('White')
         self.panel2.SetBackgroundColour('White')
-        self.label1 = wx.StaticText(self.panel1, -1, "Outbox Messages")
-        self.label1.SetFont(self.font1)
+        self.SetBackgroundColour('White')
         self.update = wx.Button(self.panel1, 101, "Update")
         self.refresh = wx.Button(self.panel1, 102, "Refresh")
         self.delete = wx.Button(self.panel1, 103, "Delete")
@@ -110,21 +110,23 @@ class InboxPanel(wx.Panel, inbox, CommonlyUsedMethodes):
     def _DoLayout(self):
         buttons = [self.update, self.refresh, self.delete, self.resendAll,
                    self.resend, self.deleteAll]
-        sizer = wx.GridBagSizer(vgap=5, hgap=5)
-        box_1 = wx.BoxSizer(wx.VERTICAL)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        subsizer = wx.BoxSizer(wx.VERTICAL)
+        box_1 = wx.StaticBoxSizer(wx.StaticBox(self, -1, 'Control Buttons'), orient=wx.VERTICAL)
         grid = wx.GridSizer(rows=2, cols=3, hgap=2, vgap=5)
         for i in buttons:
             i.SetFont(self.font1)
             grid.Add(i, 0, 0)
-        box_1.Add(self.label1, 1, wx.ALL | wx.CENTER, 1)
-        box_1.Add(grid, 1 , wx.ALL | wx.EXPAND, 10)
+
+        box_1.Add(grid, 1, wx.ALL | wx.EXPAND, 10)
         box_1.Add(self.select, 1, wx.ALL | wx.LEFT, 4)
-        self.panel1.SetSizer(box_1)
+        subsizer.Add(box_1, 1, wx.ALL | wx.EXPAND, 10)
+        self.panel1.SetSizer(subsizer)
         box_2 = wx.BoxSizer(wx.VERTICAL)
         box_2.Add(self.list, 1, wx.ALL | wx.EXPAND, 4)
         self.panel2.SetSizer(box_2)
-        sizer.Add(self.panel1, pos=(0, 0))
-        sizer.Add(self.panel2, pos=(1, 0))
+        sizer.Add(self.panel1)
+        sizer.Add(self.panel2)
         self.SetSizer(sizer)
         self.Layout()
 
@@ -161,7 +163,7 @@ class InboxPanel(wx.Panel, inbox, CommonlyUsedMethodes):
             dlg = wx.MessageBox("Are you sure of this process ?", "Confirmation", wx.ICON_INFORMATION | wx.YES_NO)
             if dlg == wx.NO:
                 return
-            self.deleteMessages("delete all")            
+            self.deleteMessages("delete all")
             self.backup()
             self.list.SetObjects(None)
             self.list.RepopulateList()

@@ -54,11 +54,11 @@ class Datahandler(object):
 
     def expiryClients(self):
         try:
-            with open("bin/expiry.dat","rb") as newfile:
+            with open("bin/expiry.dat", "rb") as newfile:
                 data = pickle.load(newfile)
             return data
         except IOError, e:
-            wx.MessageBox("Expiry file is missing!!","System Error",wx.ICON_ERROR)
+            wx.MessageBox("Expiry file is missing!!", "System Error",wx.ICON_ERROR)
 
     def get_banks(self):
         """Get a list of all the banks from bin/banks.dat"""
@@ -125,7 +125,7 @@ class Datahandler(object):
 
     def get_messages(self):
         try:
-            with open("bin/messages.dat","rb") as newfile:
+            with open("bin/messages.dat", "rb") as newfile:
                 data = pickle.load(newfile)
             return data
         except IOError, e:

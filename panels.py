@@ -335,7 +335,6 @@ class AddChequePanel(wx.Panel):
         self.InitSearchCtrls()
 
     def initializer(self):
-        print "Updating system"
         func = fun.Datahandler()
         self.payee_list = func.get_payee()
         self.banks = func.get_banks()
@@ -791,7 +790,7 @@ class MessagesSettings(wx.Panel):
         hbox.Add(self.type, 0, wx.ALIGN_CENTER | wx.ALL, 5)
         hbox.Add(status_label, 0, wx.ALIGN_CENTER | wx.ALL, 5)
         hbox.Add(self.status_choice, 0, wx.ALIGN_RIGHT | wx.ALL, 5)
-        hbox.Add(self.status, 0, wx.ALIGN_RIGHT | wx.ALL, 5)
+        hbox.Add(self.status, 0, wx.ALIGN_CENTER | wx.ALL, 5)
         vbox = wx.StaticBoxSizer(wx.StaticBox(self, -1, 'Message'), orient=wx.VERTICAL)
         vbox.Add(hbox)
         vbox.Add(self.message)

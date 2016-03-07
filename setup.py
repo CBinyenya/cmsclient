@@ -14,14 +14,15 @@ includefiles = ["images/exit.png",
                 "images/waiting.png"
                 ]
 options = {
-   'build_exe': {       
+    'build_exe': {
         'includes': ['whichdb', 'lxml.etree', 'lxml._elementpath', 'wx'],
-    "include_files": includefiles
+        "include_files": includefiles
     }
 }
 
-setup( name = "SMS Lite Client",
-    version = "1.3",
-    description = "SMS Lite Client Application",
-    options = options,
-    executables = [Executable("CMS.py", base=base)])
+setup(name="SMSLite Client",
+      version="1.4",
+      description="SMSLite Client Application",
+      options=options,
+      executables = [Executable("CMS.py", base=base)]
+      )
