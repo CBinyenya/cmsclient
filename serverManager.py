@@ -278,6 +278,8 @@ class Administration(object):
             self.connect().addCallback(lambda _: self.addSettings()).addErrback(self.catchFailure)
         elif self.type == 'get users':
             self.connect().addCallback(lambda _: self.getUsers()).addErrback(self.catchFailure)
+        elif self.type == 'check balance':
+            self.connect().addCallback(lambda _: self.check_balance()).addErrback(self.catchFailure)
         elif self.type == 'update user':
             self.connect().addCallback(lambda _: self.updateUser()).addErrback(self.catchFailure)
         elif self.type == 'update message':
@@ -367,6 +369,9 @@ class Administration(object):
 
     def add_user(self):
         return self.server.callRemote('add_user', self.details).addCallback(self._requestFeedback)
+
+    def check_balance(self):
+        return self.server.callRemote('check_balance').addCallback(self._requestFeedback)
 
     def getUsers(self):
         return self.server.callRemote('getUsers', self.details).addCallback(self._requestFeedback)
@@ -638,6 +643,11 @@ class ServerAccess(object):
 
     def get_appfiles(self):
         task = Administration(self.creds, 'all', self.details)
+        task.runEngine()
+        ServerAccess.run_reactor()
+
+    def check_balance(self):
+        task = Administration(self.creds, 'check balance', "")
         task.runEngine()
         ServerAccess.run_reactor()
 

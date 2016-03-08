@@ -2,148 +2,148 @@
 (dp2
 S'status'
 p3
-S'sent'
+S'waiting'
 p4
 sS'phone'
 p5
-S'+254704236788'
+S'+254721144445'
 p6
 sS'message'
 p7
-S'Blank'
+S'Dear Client. We have renewed your ALL RISKS policy. Kindly let us have yourpayment of Ksh 2,551.For enquiries call 0714 046604/0737 046604. Thank you.'
 p8
 sS'date'
 p9
 cdatetime
 datetime
 p10
-(S'\x07\xe0\x03\x07\r3\x07\x00\xd6\xd8'
+(S'\x07\xe0\x03\x08\x10\x1d\x05\re\xb0'
 tRp11
 sS'name'
 p12
-S'Anonymous'
+S'MATHIRA WATER AND SANITATION COMPANY'
 p13
 sa(dp14
 S'status'
 p15
-S'sent'
+S'waiting'
 p16
 sS'phone'
 p17
-S'+254704236788'
+S'+254721144445'
 p18
 sg7
-S'Blank'
+S'Dear Client. We have renewed your FIRE & ALLIED PERILS policy. Kindly let us have yourpayment of Ksh 5,575.For enquiries call 0714 046604/0737 046604. Thank you.'
 p19
 sS'date'
 p20
 g10
-(S'\x07\xe0\x03\x07\r7:\r\xbf\x88'
+(S'\x07\xe0\x03\x08\x10\x1d\x05\re\xb0'
 tRp21
 sS'name'
 p22
-S'Anonymous'
+S'MATHIRA WATER AND SANITATION COMPANY'
 p23
 sa(dp24
 S'status'
 p25
-S'sent'
+S'waiting'
 p26
 sS'phone'
 p27
-S'+254704236788'
+S'+254721144445'
 p28
 sg7
-S'Blank'
+S'Dear Client. We have renewed your GROUP PERSONAL ACCIDENT policy. Kindly let us have yourpayment of Ksh 23,546.For enquiries call 0714 046604/0737 046604. Thank you.'
 p29
 sS'date'
 p30
 g10
-(S'\x07\xe0\x03\x07\x0e\x05\x1f\x0eDX'
+(S'\x07\xe0\x03\x08\x10\x1d\x05\re\xb0'
 tRp31
 sS'name'
 p32
-S'Anonymous'
+S'MATHIRA WATER AND SANITATION COMPANY'
 p33
 sa(dp34
 S'status'
 p35
-S'sent'
+S'waiting'
 p36
 sS'phone'
 p37
-S'+254704236788'
+S'+254734041416'
 p38
 sg7
-S'Blank'
+S'Dear Client. We have renewed your KBT 453F MOTOR COMMERCIAL -  COMP - APA policy. Kindly let us have yourpayment of Ksh 238,067.For enquiries call 0714 046604/0737 046604. Thank you.'
 p39
 sS'date'
 p40
 g10
-(S'\x07\xe0\x03\x07\x0e\x065\x0c\r\xf0'
+(S'\x07\xe0\x03\x08\x10\x1d\x05\re\xb0'
 tRp41
 sS'name'
 p42
-S'Anonymous'
+S'ANCHOR FLOUR MILLERS CO. LTD'
 p43
 sa(dp44
 S'status'
 p45
-S'sent'
+S'waiting'
 p46
 sS'phone'
 p47
-S'+254704236788'
+S'+254731486813'
 p48
 sg7
-S'Blank message'
+S'Dear Client. We have renewed your KCE 102Z MOTOR PRIVATE - COMP - APA policy. Kindly let us have yourpayment of Ksh 37,207.For enquiries call 0714 046604/0737 046604. Thank you.'
 p49
 sS'date'
 p50
 g10
-(S'\x07\xe0\x03\x07\x0e\x08$\x08)\xd8'
+(S'\x07\xe0\x03\x08\x10\x1d\x05\re\xb0'
 tRp51
 sS'name'
 p52
-S'Anonymous'
+S'CHEGE MUHORO'
 p53
 sa(dp54
 S'status'
 p55
-S'sent'
+S'waiting'
 p56
 sS'phone'
 p57
-S'+254704236788'
+S'+254722889822'
 p58
 sg7
-S' Test message fom K-BIMA'
+S'Dear Client. We have renewed your KCE 185W MOTOR PRIVATE - COMP. policy. Kindly let us have yourpayment of Ksh 4,039.For enquiries call 0714 046604/0737 046604. Thank you.'
 p59
 sS'date'
 p60
 g10
-(S'\x07\xe0\x03\x07\x0e\x1c-\x08\xe5X'
+(S'\x07\xe0\x03\x08\x10\x1d\x05\re\xb0'
 tRp61
 sS'name'
 p62
-S'Anonymous'
+S'THEURI PAUL WAGIITA'
 p63
 sa(dp64
 S'status'
 p65
-S'sent'
+S'waiting'
 p66
 sS'phone'
 p67
 S'+254704236788'
 p68
 sg7
-S' Test message fom K-BIMA'
+S'iyugioubj '
 p69
 sS'date'
 p70
 g10
-(S'\x07\xe0\x03\x07\x0e!\x0f\x0f.\xb8'
+(S'\x07\xe0\x03\x08\x10 9\r\xc3p'
 tRp71
 sS'name'
 p72

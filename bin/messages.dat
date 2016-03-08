@@ -19,7 +19,7 @@ p9
 cdatetime
 datetime
 p10
-(S'\x07\xe0\x03\x07\r0\n\x03\xa5\x98'
+(S'\x07\xe0\x03\x08\x10\x1c\x1e\r\x84\xf0'
 tRp11
 sa(dp12
 S'Status'
@@ -40,7 +40,7 @@ p19
 sS'Time'
 p20
 g10
-(S'\x07\xe0\x03\x07\r0\n\x07r@'
+(S'\x07\xe0\x03\x08\x10\x1c\x1f\x00\xe2\x90'
 tRp21
 sa(dp22
 S'Status'
@@ -48,7 +48,7 @@ p23
 I00
 sS'Message'
 p24
-VDear Client. We have renewed your $POLICY policy. Kindly let us have yourpayment of Ksh:$AMOUNT.For enquiries call 0714 046604/0737 046604. Thank you.
+VDear Client. We have renewed your $POLICY policy. Kindly let us have yourpayment of Ksh $AMOUNT.For enquiries call 0714 046604/0737 046604. Thank you.
 p25
 sS'Type'
 p26
@@ -61,7 +61,7 @@ p29
 sS'Time'
 p30
 g10
-(S'\x07\xe0\x03\x07\r0\n\ty\xc8'
+(S'\x07\xe0\x03\x08\x10\x1c\x1f\x03C\xf0'
 tRp31
 sa(dp32
 S'Status'
@@ -81,7 +81,7 @@ p38
 sS'Time'
 p39
 g10
-(S'\x07\xe0\x03\x07\r0\n\x0b\x858'
+(S'\x07\xe0\x03\x08\x10\x1c\x1f\x05zX'
 tRp40
 sa(dp41
 S'Status'
@@ -102,7 +102,7 @@ p48
 sS'Time'
 p49
 g10
-(S'\x07\xe0\x03\x07\r0\n\r\x8c\xc0'
+(S'\x07\xe0\x03\x08\x10\x1c\x1f\x08-\xc0'
 tRp50
 sa(dp51
 S'Status'
@@ -123,7 +123,7 @@ p58
 sS'Time'
 p59
 g10
-(S'\x07\xe0\x03\x07\r0\x0b\x00U\xf0'
+(S'\x07\xe0\x03\x08\x10\x1c\x1f\x0b\xbb\xe8'
 tRp60
 sa(dp61
 S'Status'
@@ -144,6 +144,6 @@ p68
 sS'Time'
 p69
 g10
-(S'\x07\xe0\x03\x07\r0\x0b\x02\xb3h'
+(S'\x07\xe0\x03\x08\x10\x1c\x1f\x0e\x1dH'
 tRp70
 sa.

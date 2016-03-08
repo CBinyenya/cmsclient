@@ -21,7 +21,7 @@ class ManageChequePanel(wx.Panel):
         self.search.SetFont(self.font)
 
         image = os.path.join(os.getcwd(), "images", "user16.png")
-        self.clients = ObjectListView(self, wx.ID_ANY, style=wx.LC_REPORT | wx.SUNKEN_BORDER)
+        self.clients = ObjectListView(self, wx.ID_ANY, size=(900, 170), style=wx.LC_REPORT | wx.SUNKEN_BORDER)
         userImageIndex = self.clients.AddNamedImages("music", image)
         self.clients.SetColumns([
             ColumnDefn("Name", "left", 200, "Name", autoCompleteCellEditor=True, imageGetter=userImageIndex),
@@ -736,6 +736,10 @@ class MessagesSettings(wx.Panel):
         self.type = wx.StaticText(self, -1, "", size=(100, -1))
         self.type.SetForegroundColour(wx.BLUE)
 
+        self.invoice_label = wx.StaticText(self, -1, "Invoice Number")
+        self.invoice_number = wx.TextCtrl(self, -1, "", size=(100, -1))
+        self.invoice_number.SetForegroundColour(wx.BLUE)
+
         self.message = wx.TextCtrl(self, -1, "", style=wx.TE_MULTILINE, size=(700, 60))
         self.msg_update = wx.Button(self, -1, "Update")
         self.msg_default = wx.Button(self, -1, "Default")
@@ -791,6 +795,10 @@ class MessagesSettings(wx.Panel):
         hbox.Add(status_label, 0, wx.ALIGN_CENTER | wx.ALL, 5)
         hbox.Add(self.status_choice, 0, wx.ALIGN_RIGHT | wx.ALL, 5)
         hbox.Add(self.status, 0, wx.ALIGN_CENTER | wx.ALL, 5)
+        hbox.Add(self.invoice_label, 0, wx.ALIGN_CENTER | wx.ALL, 5)
+        hbox.Add(self.invoice_number, 0, wx.ALIGN_CENTER | wx.ALL, 5)
+        self.invoice_label.Disable()
+        self.invoice_number.Disable()
         vbox = wx.StaticBoxSizer(wx.StaticBox(self, -1, 'Message'), orient=wx.VERTICAL)
         vbox.Add(hbox)
         vbox.Add(self.message)
@@ -832,7 +840,7 @@ class MessagesSettings(wx.Panel):
         msgs = fun.Datahandler().get_messages()
         message_types = set()
         for msg in msgs:
-            message_types.add(msg["Type"].capitalize())
+            message_types.add(msg["Type"].upper())
         self.type_list = list(message_types)
         self.type_choice.AppendItems(self.type_list)
         for msg in msgs:
@@ -866,6 +874,14 @@ class MessagesSettings(wx.Panel):
         else:
             for widget in amount:
                 widget.Disable()
+        if "from" in config.keys():
+            self.invoice_number.Enable()
+            self.invoice_label.Enable()
+            self.invoice_number.SetValue(str(config["from"]))
+        else:
+            self.invoice_label.Disable()
+            self.invoice_number.Disable()
+
         self.type.SetLabelText(_type.upper())
         if config["status"]:
             self.status.SetLabelText("ACTIVE")
@@ -939,15 +955,24 @@ class MessagesSettings(wx.Panel):
         _type = self.type.GetLabelText().lower()
         status = self.status_choice.GetStringSelection()
         if status == "ACTIVE":
+            if _type == "newinvoice":
+                try:
+                    number = int(self.invoice_number.GetValue())
+                except ValueError:
+                    return wx.MessageBox("Invalid Invoice Number", "Value Error", wx.ICON_ERROR)
+                server = ServerAccess((_type, "from", number))
+                server.update_config()
             server = ServerAccess((_type, "status", True))
             server.update_config()
             self.status.SetLabelText("ACTIVE")
             self.status.SetForegroundColour(wx.GREEN)
+            self.invoice_number.Disable()
         else:
             server = ServerAccess((_type, "status", False))
             server.update_config()
             self.status.SetLabelText("INACTIVE")
             self.status.SetForegroundColour(wx.RED)
+            self.invoice_number.Enable()
         self.status.Refresh()
 
 
