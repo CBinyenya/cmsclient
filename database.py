@@ -3,6 +3,8 @@ import sqlite3
 
 
 class Alldatabase:
+
+    @staticmethod
     def createOpendb():
         db_is_new = os.path.exists('databases/groups.db')
         table = 'group_t'
