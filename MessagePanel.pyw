@@ -152,6 +152,7 @@ class Messages(wx.Panel, pop.PopupControl):
             self.list = ObjectListView(self, wx.ID_ANY,size=(973,244), style=wx.LC_REPORT | wx.SUNKEN_BORDER)
             self.list.SetColumns([
                 ColumnDefn("Id", "left", 70, "Id", autoCompleteCellEditor=True,checkStateGetter="isActive"),
+                ColumnDefn("TransNo", "left", 100, "TransNo", isSpaceFilling=True),
                 ColumnDefn("Name", "left", 100, "Name", isSpaceFilling=True),
                 ColumnDefn("Phone", "left", 150, "Phone", isSpaceFilling=True),
                 ColumnDefn("Policy", "left", 50, "Policy", isSpaceFilling=True),
