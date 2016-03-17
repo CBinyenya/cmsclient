@@ -15,8 +15,9 @@ def authorizer(cond):
         cond.notify_all()        
         import login        
         
-    print '%sLog in success preceding to System initialization' % name
-    
+    print '%s log in success preceding to System initialization' % name
+
+
 def system_initializer(cond,event):
     """Start after authorizer and import sytem files"""
     name = multiprocessing.current_process().name    
